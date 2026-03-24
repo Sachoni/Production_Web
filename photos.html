@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>John_Web.com</title>
+</head>
+
+<body>
+    <header>
+            <div>
+                <ul class="list" type="square">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Photos</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="file.html">Files</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </header>
+
+<h1><U><B>Welcome</B></U></h1>
+
+<p type="square">JavaScript Notes</p>
+<div class="container" id="fileContainer"></div>
+
+<script>
+const files = [
+    // Images
+    { name: "JavaScript", type: "jpg", size: "2 MB", url: "assets/photos/JavaScript/1.jpg" },
+    { name: "JavaScript", type: "jpg", size: "2 MB", url: "assets/photos/JavaScript/2.jpg"  },
+    { name: "JavaScript", type: "jpg", size: "2 MB", url: "assets/photos/JavaScript/3.jpg" },
+    { name: "JavaScript", type: "jpg", size: "2 MB", url: "assets/photos/JavaScript/4.jpg"  },
+    { name: "JavaScript", type: "jpg", size: "2 MB", url: "assets/photos/JavaScript/4.jpg"  },
+    { name: "JavaScript", type: "jpg", size: "2 MB", url: "assets/photos/JavaScript/5.jpg"  },
+    { name: "JavaScript", type: "jpg", size: "2 MB", url: "assets/photos/JavaScript/6.jpg"  },
+    { name: "JavaScript", type: "jpg", size: "2 MB", url: "assets/photos/JavaScript/7.jpg"  },
+    { name: "JavaScript", type: "jpg", size: "2 MB", url: "assets/photos/JavaScript/8.jpg"  },
+    { name: "JavaScript", type: "jpg", size: "2 MB", url: "assets/photos/JavaScript/9.jpg"  },
+    { name: "JavaScript", type: "jpg", size: "2 MB", url: "assets/photos/JavaScript/10.jpg"  },
+    { name: "JavaScript", type: "jpg", size: "2 MB", url: "assets/photos/JavaScript/11.jpg"  },
+    { name: "JavaScript", type: "jpg", size: "2 MB", url: "assets/photos/JavaScript/12.jpg"  }
+];
+
+// Check if image
+function isImage(type) {
+    return ["jpg","jpeg","png","gif","webp","svg"].includes(type);
+}
+
+// Icon mapping
+function getIcon(type) {
+    switch(type) {
+        case "zip":
+        case "rar":
+        case "tar":
+            return "📦";
+        case "apk":
+            return "📱";
+        case "exe":
+            return "💻";
+        default:
+            return "📄";
+    }
+}
+
+// Render cards
+const container = document.getElementById("fileContainer");
+
+files.forEach(file => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    let preview;
+
+    if (isImage(file.type)) {
+        preview = `<img src="${file.url}" class="preview">`;
+    } else {
+        preview = `<div class="file-icon">${getIcon(file.type)}</div>`;
+    }
+
+    card.innerHTML = `
+        ${preview}
+        <div class="content">
+            <div class="file-name">${file.name}</div>
+            <div class="file-info">${file.type.toUpperCase()} • ${file.size}</div>
+            <div class="buttons">
+                <button class="download" onclick="downloadFile('${file.url}')">Download</button>
+                <button class="share" onclick="shareFile('${file.name}')">Share</button>
+            </div>
+        </div>
+    `;
+
+    container.appendChild(card);
+});
+
+// Download
+function downloadFile(url) {
+    window.location.href = url;
+}
+
+// Share
+function shareFile(name) {
+    if (navigator.share) {
+        navigator.share({
+            title: name,
+            text: "Check this file",
+            url: window.location.href
+        });
+    } else {
+        alert("Sharing not supported");
+    }
+}
+</script>
+
+</body>
+<footer>
+    <div class="paragraph">
+        <p1 class="para1">All right reserved</p1>
+        <p2 class="para2">Made with <strong>Love</strong>.</p2>
+        <p3 class="para3">Contact: <strong><a href="https://wa.me/message/E63FBL45WQ2YLI">Whatsapp</a></strong></p3>
+    </div>
+</footer>
+</html>

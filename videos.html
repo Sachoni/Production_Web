@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>John_Web.com</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #808080;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        background: #ffff00;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: scale(1.03);
+    }
+
+    .thumbnail {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .description {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button {
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    .download {
+        background: #28a745;
+    }
+
+    .share {
+        background: #007bff;
+    }
+</style>
+</head>
+
+<body>
+    <header>
+            <div>
+                <ul class="list" type="square">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="photos.html">Photos</a></li>
+                    <li><a href="#">Videos</a></li>
+                    <li><a href="file.html">Files</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </header>
+
+<h1><U><B>Video Gallery</B></U></h1>
+
+<div class="container">
+
+    <!-- Video Card 1 -->
+    <div class="card">
+        <img src="assets/videos/thumb/Screenshot (186).png" class="thumbnail">
+        <div class="card-content">
+            <div class="title">3 More Laws of Writing Readable Code</div>
+            <div class="description">3 More Laws of Writing Readable Code.</div>
+            <div class="buttons">
+                <button class="download" onclick="downloadVideo('assets/videos/code/3 More Laws of Writing Readable Code - Kantan Coding (1080p, h264).mp4')">Download</button>
+                <button class="share" onclick="shareVideo('assets/videos/code/3 More Laws of Writing Readable Code - Kantan Coding (1080p, h264).mp4')">Share</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Card 2 -->
+    <div class="card">
+        <img src="assets/videos/thumb/Screenshot (187).png" class="thumbnail">
+        <div class="card-content">
+            <div class="title">Cleaner Code 3 Ways You Can Write Cleaner Code</div>
+            <div class="description">Cleaner Code 3 Ways You Can Write Cleaner Code.</div>
+            <div class="buttons">
+                <button class="download" onclick="downloadVideo('assets/videos/code/Cleaner Code 3 Ways You Can Write Cleaner Code - Coding with Lewis (1080p, h264).mp4')">Download</button>
+                <button class="share" onclick="shareVideo('assets/videos/code/Cleaner Code 3 Ways You Can Write Cleaner Code - Coding with Lewis (1080p, h264).mp4')">Share</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Card 3 -->
+    <div class="card">
+        <img src="assets/videos/thumb/Screenshot (188).png" class="thumbnail">
+        <div class="card-content">
+            <div class="title">Linus s Laws of Writing Readable Code</div>
+            <div class="description">Linus s Laws of Writing Readable Code.</div>
+            <div class="buttons">
+                <button class="download" onclick="downloadVideo('assets/videos/code/Linus s Laws of Writing Readable Code - Kantan Coding (1080p, h264).mp4')">Download</button>
+                <button class="share" onclick="shareVideo('assets/videos/code/Linus s Laws of Writing Readable Code - Kantan Coding (1080p, h264).mp4')">Share</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Card 4 -->
+    <div class="card">
+        <img src="assets/videos/thumb/Screenshot (189).png" class="thumbnail">
+        <div class="card-content">
+            <div class="title">Naming Things in Code</div>
+            <div class="description">Naming Things in Code.</div>
+            <div class="buttons">
+                <button class="download" onclick="downloadVideo('assets/videos/code/Naming Things in Code - CodeAesthetic (1080p, h264).mp4')">Download</button>
+                <button class="share" onclick="shareVideo('assets/videos/code/Naming Things in Code - CodeAesthetic (1080p, h264).mp4')">Share</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function downloadVideo(file) {
+    alert("Downloading: " + file);
+    // Replace with actual download link logic
+    window.location.href = file;
+}
+
+function shareVideo(title) {
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            text: "Check out this video from John.com!",
+            url: window.location.href
+        });
+    } else {
+        alert("Sharing not supported on this browser");
+    }
+}
+</script>
+
+</body>
+<footer>
+    <div class="paragraph">
+        <p1 class="para1">All right reserved</p1>
+        <p2 class="para2">Made with <strong>Love</strong>.</p2>
+        <p3 class="para3">Contact: <strong><a href="https://wa.me/message/E63FBL45WQ2YLI">Whatsapp</a></strong></p3>
+    </div>
+</footer>
+</html>

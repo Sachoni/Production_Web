@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>John__Web.om</title>
+
+</head>
+
+<body>
+    <header>
+            <div>
+                <ul class="list" type="square">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="photos.html">Photos</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="file.html">Files</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+        </header>
+
+<h1>About</h1>
+
+<div class="container">
+
+    <!-- Video Card 1 -->
+    <div class="card">
+        <div class="card-content">
+            <div class="title">Private Web</div>
+            <div style="background: #fff; color:#f91e06;"><strong><B><U>Thi is classified web only.</U></B></strong></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function downloadVideo(file) {
+    alert("Downloading: " + file);
+    // Replace with actual download link logic
+    window.location.href = file;
+}
+
+function shareVideo(title) {
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            text: "Check out this video!",
+            url: window.location.href
+        });
+    } else {
+        alert("Sharing not supported on this browser");
+    }
+}
+</script>
+
+</body>
+<footer>
+    <div class="paragraph">
+        <p1 class="para1">All right reserved</p1>
+        <p2 class="para2">Made with <strong>Love</strong>.</p2>
+        <p3 class="para3">Contact: <strong><a href="https://wa.me/message/E63FBL45WQ2YLI">Whatsapp</a></strong></p3>
+    </div>
+</footer>
+</html>

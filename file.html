@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>John_Web.com</title>
+</head>
+
+
+<body>
+    <header>
+            <div>
+                <ul class="list" type="square">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="photos.html">Photos</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="#">Files</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </header>
+
+<h1><U><B>Welcome</B></U></h1>
+<h1>Download Files</h1>
+
+<div class="container" id="fileContainer"></div>
+
+<script>
+// Sample files
+const files = [
+    { name: "Maringo_Sytem", type: "zip", size: "570kb", url: "assets/files/Maringo_System.zip" },
+    { name: "Android App", type: "apk", size: "25 MB", url: "files/app.apk" },
+    { name: "Project Archive", type: "zip", size: "10 MB", url: "files/project.zip" },
+    { name: "Backup File", type: "rar", size: "18 MB", url: "files/backup.rar" },
+    { name: "Linux Package", type: "tar", size: "30 MB", url: "files/package.tar" }
+];
+
+// Icon mapping
+function getIcon(type) {
+    switch(type) {
+        case "zip":
+        case "rar":
+        case "tar":
+            return "📦";
+        case "apk":
+            return "📱";
+        case "exe":
+            return "💻";
+        default:
+            return "📁";
+    }
+}
+
+// Render cards
+const container = document.getElementById("fileContainer");
+
+files.forEach(file => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+        <div class="file-icon">${getIcon(file.type)}</div>
+        <div class="file-name">${file.name}</div>
+        <div class="file-info">${file.type.toUpperCase()} • ${file.size}</div>
+        <div class="buttons">
+            <button class="download" onclick="downloadFile('${file.url}')">Download</button>
+            <button class="share" onclick="shareFile('${file.name}')">Share</button>
+        </div>
+    `;
+
+    container.appendChild(card);
+});
+
+// Download
+function downloadFile(url) {
+    window.location.href = url;
+}
+
+// Share
+function shareFile(name) {
+    if (navigator.share) {
+        navigator.share({
+            title: name,
+            text: "Download this file",
+            url: window.location.href
+        });
+    } else {
+        alert("Sharing not supported");
+    }
+}
+</script>
+
+</body>
+<footer>
+    <div class="paragraph">
+        <p1 class="para1">All right reserved</p1>
+        <p2 class="para2">Made with <strong>Love</strong>.</p2>
+        <p3 class="para3">Contact: <strong><a href="https://wa.me/message/E63FBL45WQ2YLI">Whatsapp</a></strong></p3>
+    </div>
+</footer>
+</html>
